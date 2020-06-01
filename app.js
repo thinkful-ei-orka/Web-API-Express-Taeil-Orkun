@@ -31,9 +31,9 @@ app.get('/cipher', (req, res) => {
 
 app.get('/lotto', (req, res) => {
     const arr = req.query.arr
-    const matches = 0;
+    let matches = 0;
     arr.forEach(number => {
-        if (parseInt(number) === Math.floor(Math.random() * 5) + 1) {
+        if (parseInt(number) === Math.floor(Math.random() * 20) + 1) {
             matches += 1
         }
 
