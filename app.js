@@ -29,3 +29,27 @@ app.get('/cipher', (req, res) => {
     res.send(result)
 })
 
+app.get('/lotto', (req, res) => {
+    const arr = req.query.arr
+    const matches = 0;
+    arr.forEach(number => {
+        if (parseInt(number) === Math.floor(Math.random() * 5) + 1) {
+            matches += 1
+        }
+
+    })
+    if (matches < 4) {
+        res.send('Sorry, you lose.')
+    }
+    else if (matches === 4) {
+        res.send('Congratulations, you  win a free ticket')
+    }
+    else if (matches === 5) {
+        res.send('Congratulations! You win $100!')
+    }
+    else if (matches === 6) {
+        res.send('Wow! Unbelievable You could have won the mega millions!')
+    }
+
+    
+})
