@@ -13,6 +13,16 @@ app.get('/sum', (req, res) => {
 
 app.listen(3000)
 
-// app.listen(8000, () => {
+app.get('/cipher', (req, res) => {
+    const text = req.query.text;
+    const shift = req.query.shift;
+    let result = '';
+    for (let i = 0; i < text.length; i++){
+        let charCode = text.charCodeAt(i)
+        let newCode = charCode + shift;
+        let newLetter = String.fromCharCode(newCode)
+        result += newLetter
+    }
+    res.send(result)
+})
 
-// })
